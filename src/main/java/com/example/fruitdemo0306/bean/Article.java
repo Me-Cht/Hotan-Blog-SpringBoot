@@ -1,9 +1,6 @@
 package com.example.fruitdemo0306.bean;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-
 import javax.persistence.*;
-import java.awt.*;
 import java.math.BigInteger;
 import java.util.Date;
 
@@ -17,6 +14,7 @@ public class Article {
     private String content;
     private BigInteger author_id;
     private Date create_time;
+    private String auth_name;
 
 
     public Article(BigInteger id, String title, String content, BigInteger author_id, Date create_time) {
@@ -31,6 +29,13 @@ public class Article {
 
     }
 
+    public String getAuth_name() {
+        return auth_name;
+    }
+
+    public void setAuth_name(String auth_name) {
+        this.auth_name = auth_name;
+    }
 
     public BigInteger getId() {
         return id;
@@ -71,7 +76,6 @@ public class Article {
     public void setCreate_time(Date create_time) {
         this.create_time = create_time;
     }
-
 
 
 }

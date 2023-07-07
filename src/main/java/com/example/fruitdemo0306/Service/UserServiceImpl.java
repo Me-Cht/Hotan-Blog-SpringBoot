@@ -11,10 +11,6 @@ public class UserServiceImpl implements UserService{
 
     @Resource
     private UserDAO userDAO;
-
-
-
-
     @Override
     public User registerService(User user) {
         boolean userExists = userDAO.existsByName(user.getName());
@@ -22,7 +18,6 @@ public class UserServiceImpl implements UserService{
             return null;
         }else {
             return userDAO.save(user);
-
         }
     }
 

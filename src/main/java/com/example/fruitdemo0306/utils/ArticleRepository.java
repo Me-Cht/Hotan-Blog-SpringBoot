@@ -16,6 +16,13 @@ public interface ArticleRepository extends JpaRepository<Article,BigInteger> {
             "FROM Article " +
             "WHERE author_id = :userId")
     List<Article> findArticleByUserId(@Param("userId") BigInteger user);
+
+    // 自定义的保存文章方法
+    default void saveArticle(Article article) {
+        save(article);
+    }
+    @Query("SELECT u.name FROM User u WHERE u.id = :userId")
+    String findUserNameById(@Param("userId") Integer userId);
 }
 
 
