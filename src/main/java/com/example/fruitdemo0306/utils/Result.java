@@ -39,12 +39,12 @@ public class Result <T>{
         return result;
     }
 
-    public static <T> Result<T> success(T data) {
-        Result<T> result = new Result<>(data);
-        result.setCode("0");
-        result.setMsg("成功");
-        return result;
-    }
+//    public static <T> Result<T> success(T data) {
+//        Result<T> result = new Result<>(data);
+//        result.setCode("0");
+//        result.setMsg("成功");
+//        return result;
+//    }
 
     public static <T> Result<T> success(T data,String msg) {
         Result<T> result = new Result<>(data);
@@ -57,6 +57,10 @@ public class Result <T>{
         Result result = new Result();
         result.setCode(code);
         result.setMsg(msg);
+        return result;
+    }
+    public static Result ok(){
+        Result result = new Result();
         return result;
     }
 }

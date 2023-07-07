@@ -31,7 +31,7 @@ public class FruitController {
         return fruitRepository.findAll();
     }
 
-    @GetMapping("findById/{id}")
+    @GetMapping("/findById/{id}")
     public Optional<Fruit> getDetail(@PathVariable Long id) {
         return fruitRepository.findById(id);
     }
@@ -48,18 +48,17 @@ public class FruitController {
     }
 
     @PutMapping("/update/{id}") //使用{id}作为路径参数。
-
     //声明changeFruitPrice方法，使用@PathVariable获取路径参数{id}，使用@RequestBody获取请求体中的JSON数据。
     public ResponseEntity<String> changeFruitPrice(@PathVariable("id") Long id, @RequestBody Map<String, Object> body) {
         //获取JSON数据中的newPrice，并将其转换为BigDecimal类型。
-        Double price = new Double(body.get("price").toString());
+        Double price = new Double (body.get("price").toString());
         //调用FruitRepository的updatePriceById方法，更新水果的价格。
         int result = fruitRepository.updatePriceById(id, price);
         //如果更新失败，则返回状态码为404，响应消息为"Fruit not found."。
         if (result == 0) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Fruit not found.");
         }
-        //更新成功后，返回状态码为200，响应消息为"Fruit price updated successfully."。
+                //更新成功后，返回状态码为200，响应消息为"Fruit price updated successfully."。
         return ResponseEntity.ok("Fruit price updated successfully.");
     }
 
@@ -70,15 +69,6 @@ public class FruitController {
 
 
 
-    //        @RequestParam(required = false) String name,
-//        @RequestParam(required = false) String category,
-//        @RequestParam(required = false) Double minPrice,
-//        @RequestParam(required = false) Double maxPrice
-
-    //                name != null ? name:"",
-//                category != null ? category:"",
-//                minPrice!=null ? minPrice: Double.MAX_VALUE,
-//                maxPrice != null ? maxPrice: Double.MAX_VALUE
 
     @PostMapping("/search")
     public ResponseEntity<List<Fruit>> getFName(@RequestBody(required = false) Map<String,Object> body){

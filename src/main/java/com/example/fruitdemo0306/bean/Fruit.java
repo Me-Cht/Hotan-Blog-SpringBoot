@@ -6,9 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
-import java.math.BigDecimal;
-@Table(name = "fruit")
 @Entity
+@Table(name = "fruit")
 public class Fruit {
 
     @javax.persistence.Id
@@ -23,6 +22,34 @@ public class Fruit {
     private Double price;
 
     private String category;
+
+    private String image;
+    private Integer count;
+    private Boolean state;
+
+    public Boolean getState() {
+        return state;
+    }
+
+    public void setState(Boolean state) {
+        this.state = state;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public Long getId() {
         return id;

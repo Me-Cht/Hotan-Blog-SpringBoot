@@ -12,9 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="userlogin")
+@Table(name="user")
 public class UserLogin {
     @Id
     private int id;

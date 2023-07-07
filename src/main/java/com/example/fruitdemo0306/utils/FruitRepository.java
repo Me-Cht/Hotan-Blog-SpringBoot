@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public interface FruitRepository extends JpaRepository <Fruit,Long>, JpaSpecificationExecutor<Fruit> {
+public interface  FruitRepository extends JpaRepository <Fruit,Long>, JpaSpecificationExecutor<Fruit> {
     List<Fruit> findAll();
 
     @Transactional

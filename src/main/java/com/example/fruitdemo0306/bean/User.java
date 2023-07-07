@@ -19,6 +19,7 @@ import javax.persistence.Table;
  * @Date: 2023年03月12日 10:21
  * @Description:
  */
+
 @Entity
 @Table(name = "user")
 
@@ -37,7 +38,6 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
     public int getId() {
         return id;
     }
