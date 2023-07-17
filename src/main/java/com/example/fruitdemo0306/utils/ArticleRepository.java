@@ -10,17 +10,22 @@ import java.math.BigInteger;
 import java.util.List;
 @Repository
 public interface ArticleRepository extends JpaRepository<Article,BigInteger> {
+    @Query("select NEW Article (id,title,content,author_id,create_time,auth_name)"+
+    "from Article ")
     List<Article> findAll();
 
     @Query("SELECT NEW Article (id, title, content, author_id, create_time) " +
             "FROM Article " +
             "WHERE author_id = :userId")
-    List<Article> findArticleByUserId(@Param("userId") BigInteger user);
+    List<Article> findArticleByUserId(@Param("userId") Integer userId);
 
     // 自定义的保存文章方法
     default void saveArticle(Article article) {
         save(article);
     }
+//    @Query("SELECT u.name FROM User u WHERE u.id = :userId")
+//    String findUserNameById(@Param("userId") Integer userId);
+
     @Query("SELECT u.name FROM User u WHERE u.id = :userId")
     String findUserNameById(@Param("userId") Integer userId);
 }
